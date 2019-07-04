@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="0" time="6.602">
+  <testsuite name="classea" errors="0" failures="0" skipped="0" timestamp="2019-07-04T14:33:25" time="1.826" tests="5">
+    <testcase classname="classea 接受className" name="classea 接受className" time="0.005">
+    </testcase>
+    <testcase classname="classea 接受className" name="classea 接受className" time="0.001">
+    </testcase>
+    <testcase classname="classea 接受className" name="classea 接受className" time="0">
+    </testcase>
+    <testcase classname="classea 接受className" name="classea 接受className" time="0.001">
+    </testcase>
+    <testcase classname="classea 接受className" name="classea 接受className" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="button test" errors="0" failures="0" skipped="0" timestamp="2019-07-04T14:33:25" time="1.843" tests="1">
+    <testcase classname="button test is div" name="button test is div" time="0.025">
+    </testcase>
+  </testsuite>
+  <testsuite name="icon test" errors="0" failures="0" skipped="0" timestamp="2019-07-04T14:33:25" time="2" tests="2">
+    <testcase classname="icon test render successfully" name="icon test render successfully" time="0.019">
+    </testcase>
+    <testcase classname="icon test onClick" name="icon test onClick" time="0.039">
+    </testcase>
+  </testsuite>
+  <testsuite name="hello" errors="0" failures="0" skipped="0" timestamp="2019-07-04T14:33:27" time="0.242" tests="1">
+    <testcase classname="hello 1===1" name="hello 1===1" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
