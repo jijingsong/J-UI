@@ -9,7 +9,7 @@ ReactDOM.render(
     <div>
       <header>
         <div className="logo">
-          FUI
+          JUI
         </div>
 
       </header>
