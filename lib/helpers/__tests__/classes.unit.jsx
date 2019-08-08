@@ -1,4 +1,4 @@
-import classes from '../classes'
+import classes, { scopedClassMaker } from '../classes'
 
 describe('classea', () => {
   it('接受className', () => {
@@ -20,5 +20,16 @@ describe('classea', () => {
   it('接受className', () => {
     const result = classes()
     expect(result).toEqual('')
+  })
+})
+
+describe('scopeClassMaker', () => {
+  it('接受字符串或对象', () => {
+    const sc = scopedClassMaker('jui-layout')
+    expect(sc('')).toEqual('jui-layout')
+    expect(sc('x')).toEqual('jui-layout-x')
+    expect(sc({ x: true, y: false })).toEqual('jui-layout-x')
+    expect(sc({ x: true, y: true })).toEqual('jui-layout-x jui-layout-y')
+    expect(sc({ x: true, y: true }, { extra: 'extra' })).toEqual('jui-layout-x jui-layout-y extra')
   })
 })

@@ -1,10 +1,9 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import Icon from '../icon/icon'
-import { scopedClassMaker } from '../classes'
+import { scopedClassMaker } from '../helpers/classes'
 import '../index.scss'
 import './dialog.scss'
-import { ReactElement } from 'react';
 
 interface Props {
   visible: boolean,
@@ -61,7 +60,7 @@ Dialog.defaultProps = {
   maskClosable: false
 }
 
-const Modal = (content: React.ReactNode, buttons?: Array<ReactElement>, afterClose?: () => void) => {
+const Modal = (content: React.ReactNode, buttons?: Array<React.ReactElement>, afterClose?: () => void) => {
   const close = () => {
     ReactDOM.render(React.cloneElement(component, { visible: false }), div)
     ReactDOM.unmountComponentAtNode(div)
