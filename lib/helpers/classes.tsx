@@ -12,20 +12,13 @@ interface classObj {
 }
 
 function scopedClassMaker(prefix: string) {
-  return function (name?: string | classObj, options?: options) {
-    let result
-    if (typeof name === 'object') {
-      let nameArr = Object.keys(name).filter(key => name[key])
-      result = nameArr.map(name => [prefix, name].filter(Boolean).join('-')).join(' ')
-    } else {
-      result = [prefix, name].filter(Boolean).join('-')
-    }
-
-    if (options && options.extra) {
-      return [result, options.extra].filter(Boolean).join(' ')
-    } else {
-      return result
-    }
+  return (name?: string | classObj, options?: options) => {
+    return (typeof name === 'object' ? Object.keys(name).filter(key => name[key]) : [name])
+      .map(name => [prefix, name]
+        .filter(Boolean)
+        .join('-'))
+      .concat(options && options.extra ? [options.extra] : [])
+      .join(' ')
   }
 }
 

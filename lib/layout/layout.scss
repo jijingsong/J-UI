@@ -1,9 +1,14 @@
 .jui-layout {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
 
-  &.hasAside {
+  & & {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-hasAside {
     flex-direction: row;
 
     .jui-layout {
@@ -13,13 +18,5 @@
 
   &-content {
     flex-grow: 1;
-    border: 1px solid green;
-  }
-
-  & & {
-    flex-grow: 1;
-    border: 1px solid blue;
-    display: flex;
-    flex-direction: row;
   }
 }
