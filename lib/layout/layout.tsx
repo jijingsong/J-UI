@@ -14,10 +14,15 @@ const Layout: React.FunctionComponent<Props> = (props) => {
   const hasAside = length in (props.children as Array<React.ReactElement>) &&
     (props.children as Array<React.ReactElement>).some(node => node.type === Aside)
   return (
-    <div className={scopedClass({'': true, hasAside}, { extra: className })} {...rest}>
+    <div className={scopedClass({ '': true, hasAside }, { extra: className })} {...rest}>
       {props.children}
     </div>
   )
 }
 
 export default Layout
+export { Layout }
+export { default as Header } from './header'
+export { default as Aside } from './aside'
+export { default as Content } from './content'
+export { default as Footer } from './footer'
