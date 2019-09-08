@@ -5,6 +5,7 @@ import IconDemo from './lib/icon/icon.demo';
 import ButtonExample from './lib/button/button.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import FormExample from './lib/form/form.example';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 const logo = require('./logo.png')
 import './example.scss'
@@ -14,7 +15,7 @@ ReactDOM.render(
     <Layout className="site-page">
       <Header className="site-header">
         <div className="logo">
-          <img src={logo} width="48" height="48" alt="" />
+          <img src={logo} width="40" height="40" alt="" />
           <span> J-UI </span>
         </div>
       </Header>
@@ -23,13 +24,16 @@ ReactDOM.render(
           <h2>组件</h2>
           <ul>
             <li>
-              <NavLink to="/icon">Icon</NavLink>
+              <NavLink to="/icon">Icon 图标</NavLink>
             </li>
             <li>
-              <NavLink to="/dialog">对话框</NavLink>
+              <NavLink to="/dialog">dialog 对话框</NavLink>
             </li>
             <li>
-              <NavLink to="/layout">布局</NavLink>
+              <NavLink to="/layout">layout 布局</NavLink>
+            </li>
+            <li>
+              <NavLink to="/form">form 表单</NavLink>
             </li>
           </ul>
         </Aside>
@@ -38,6 +42,7 @@ ReactDOM.render(
           <Route path="/button" component={ButtonExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
+          <Route path="/form" component={FormExample} />
         </Content>
       </Layout>
       <Footer className="site-footer">
