@@ -2,7 +2,8 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
-import ButtonExample from './lib/button/button.example';
+import ButtonDemo from './lib/button/button.demo';
+import GridDemo from './lib/grid/grid.demo';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
@@ -22,24 +23,56 @@ ReactDOM.render(
       <Layout>
         <Aside className="site-aside">
           <h2>组件</h2>
-          <ul>
-            <li>
-              <NavLink to="/icon">Icon 图标</NavLink>
+          <ul className='aside-menu'>
+            <li className='menu-item-group'>
+              <div className='menu-item-group-title'>通用</div>
+              <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  <NavLink to="/button">Button 按钮</NavLink>
+                </li>
+              </ul>
             </li>
-            <li>
-              <NavLink to="/dialog">dialog 对话框</NavLink>
+            <li className='menu-item-group'>
+              <div className='menu-item-group-title'>布局</div>
+              <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  <NavLink to="/layout">Layout 布局</NavLink>
+                </li>
+                <li className='menu-item'>
+                  <NavLink to="/grid">Grid 栅格</NavLink>
+                </li>
+              </ul>
             </li>
-            <li>
-              <NavLink to="/layout">layout 布局</NavLink>
+            <li className='menu-item-group'>
+              <div className='menu-item-group-title'>数据录入</div>
+              <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  <NavLink to="/form">Form 表单</NavLink>
+                </li>
+              </ul>
             </li>
-            <li>
-              <NavLink to="/form">form 表单</NavLink>
+            <li className='menu-item-group'>
+              <div className='menu-item-group-title'>数据展示</div>
+              <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  {/* <NavLink to="/form">Form 表单</NavLink> */}
+                </li>
+              </ul>
+            </li>
+            <li className='menu-item-group'>
+              <div className='menu-item-group-title'>反馈</div>
+              <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  <NavLink to="/dialog">Dialog 对话框</NavLink>
+                </li>
+              </ul>
             </li>
           </ul>
         </Aside>
         <Content className="site-main">
           <Route path="/icon" component={IconDemo} />
-          <Route path="/button" component={ButtonExample} />
+          <Route path="/button" component={ButtonDemo} />
+          <Route path="/grid" component={GridDemo} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />

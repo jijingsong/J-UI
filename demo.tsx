@@ -1,9 +1,13 @@
 import * as React from 'react'
 import Highlight, { defaultProps } from "prism-react-renderer"
 import { useState } from 'react';
+import Icon from './lib/icon/icon'
+import './demo.scss'
 
 interface Props {
-  code: string
+  code: string,
+  title?: string,
+  description?: string
 }
 
 const Demo: React.FunctionComponent<Props> = (props) => {
@@ -25,10 +29,18 @@ const Demo: React.FunctionComponent<Props> = (props) => {
   )
   return (
     <div className='example'>
-      {props.children}
-      <div>
-        <button onClick={() => setCodeVisible(!codeVisible)}>查看代码</button>
-        {codeVisible && code}
+      <div className='example-content'>
+        {props.children}
+      </div>
+      <div className='code-example-box'>
+        <div className='code-title'>{props.title}</div>
+        <div className='code-description'>
+          {props.description}
+          <span className='code-wrap' onClick={() => setCodeVisible(!codeVisible)}><Icon name='codepen' /></span>
+        </div>
+        <div className='code-example'>
+          {codeVisible && code}
+        </div>
       </div>
     </div>
   )

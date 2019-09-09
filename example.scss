@@ -81,26 +81,37 @@ body {
     font-size: 18px;
   }
 
-  ul {
-    min-width: 12em;
+  .aside-menu {
+    min-width: 16em;
 
-    >li {
-      padding: 5px;
+    .menu-item-group {
+      .menu-item-group-title {
+        font-size: 15px;
+        padding-left: 40px;
+        color: rgba(0, 0, 0, 0.45);
+      }
 
-      a {
-        font-size: 14px;
-        color: #333;
-        display: block;
-        padding: 12px $padding;
+      .menu-item-group-list {
+        .menu-item {
+          margin: 15px 0;
+          width: calc(100% + 1px);
 
-        &:hover {
-          color: $main-color;
-        }
+          a {
+            font-size: 13px;
+            color: #333;
+            display: block;
+            padding: 12px 70px;
 
-        &.active {
-          color: $main-color;
-          background: #e6f7ff;
-          border-right: 3px solid #1890ff;
+            &:hover {
+              color: $main-color;
+            }
+
+            &.active {
+              color: $main-color;
+              background: #e6f7ff;
+              border-right: 3px solid #1890ff;
+            }
+          }
         }
       }
     }

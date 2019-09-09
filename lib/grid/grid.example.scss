@@ -1,0 +1,23 @@
+.grid-demo-wrap {  
+  .jui-col {
+    &:nth-child(odd)>div {
+      background-color: rgb(64, 169, 255);
+    }
+
+    &:nth-child(even)>div {
+      background-color: rgb(24, 144, 255);
+    }
+
+    >div {
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+
+}

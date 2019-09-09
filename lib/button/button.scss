@@ -1,10 +1,20 @@
 @import "../helper";
 
 .jui-button {
-    padding: 4px 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
     line-height: 22px;
-    transition: all 250ms;
+    padding: 4px 15px;
+    margin: 0 10px;
+    border: 1px solid;
+    color: rgba(0, 0, 0, 0.65);
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background-color: #fff;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     &:focus {
         outline: none;
@@ -12,7 +22,7 @@
 
     &-default {
         color: #333;
-        border: 1px solid lighten(#333, 50%);
+        border: 1px solid lighten(#333, 65%);
         background: white;
 
         &:hover,
@@ -31,6 +41,78 @@
         &:focus {
             background: lighten($main-color, 10%);
             border-color: lighten($main-color, 10%);
+        }
+    }
+
+    &-dashed {
+        color: #333;
+        border-style: dashed;
+
+        &:hover,
+        &:focus {
+            color: $main-color;
+            border-color: lighten($main-color, 10%);
+        }
+    }
+
+    &-dangerous {
+        color: #f5222d;
+        background-color: #f5f5f5;
+
+        &:hover {
+            color: #fff;
+            background-color: #f5222d;
+            border-color: #f5222d;
+        }
+
+        &:focus {
+            color: #f5222d;
+            background-color: #fff;
+            border-color: #f5222d;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        box-shadow: none;
+        opacity: .65;
+        color: rgba(0, 0, 0, 0.45);
+        border-color: #d9d9d9;
+        background-color: #e6e6e6;
+
+        &:hover {
+            color: rgba(0, 0, 0, 0.45);
+            border-color: #d9d9d9;
+        }
+
+        &:focus {
+            color: rgba(0, 0, 0, 0.45);
+            border-color: #d9d9d9;
+        }
+    }
+
+    &.large {
+        font-size: 17px;
+        height: 40px;
+        padding: 0 20px;
+    }
+
+    &.small {
+        font-size: 12px;
+        height: 26px;
+        padding: 0 10px;
+    }
+
+    .loading {
+        width: 0.9em;
+        height: 0.9em;
+        margin-right: 8px;
+        animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
         }
     }
 }
