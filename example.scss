@@ -35,7 +35,7 @@ pre {
   font-family: "Fira Code Medium", Consolas, monospace;
 }
 
-$padding: 25px;
+$padding: 20px;
 $main-color: #1890ff;
 $border-color: #eee;
 
@@ -88,19 +88,21 @@ body {
       .menu-item-group-title {
         font-size: 15px;
         padding-left: 40px;
+        padding-bottom: 8px;
+        padding-top: 8px;
         color: rgba(0, 0, 0, 0.45);
       }
 
       .menu-item-group-list {
         .menu-item {
-          margin: 15px 0;
+          margin: 8px 0;
           width: calc(100% + 1px);
 
           a {
             font-size: 13px;
             color: #333;
             display: block;
-            padding: 12px 70px;
+            padding: 8px 70px;
 
             &:hover {
               color: $main-color;

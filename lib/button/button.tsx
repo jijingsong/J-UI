@@ -5,9 +5,9 @@ import Icon from '../icon/icon'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   level?: 'default' | 'primary' | 'dangerous' | 'dashed',
-  disabled?: any,
-  size?: 'large' | 'middle' | 'small',
-  loading?: any
+  disabled?: boolean,
+  size?: 'large' | 'default' | 'small',
+  loading?: boolean
 }
 
 const Button: React.FunctionComponent<Props> = (props) => {
@@ -27,7 +27,7 @@ const Button: React.FunctionComponent<Props> = (props) => {
 
 Button.defaultProps = {
   level: 'default',
-  size: 'middle'
+  size: 'default'
 }
 
 export default Button

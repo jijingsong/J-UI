@@ -4,8 +4,9 @@ import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
 import ButtonDemo from './lib/button/button.demo';
 import GridDemo from './lib/grid/grid.demo';
+import LayoutDemo from './lib/layout/layout.demo';
+import InputDemo from './lib/input/input.demo';
 import DialogExample from './lib/dialog/dialog.example';
-import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 const logo = require('./logo.png')
@@ -36,16 +37,19 @@ ReactDOM.render(
               <div className='menu-item-group-title'>布局</div>
               <ul className='menu-item-group-list'>
                 <li className='menu-item'>
-                  <NavLink to="/layout">Layout 布局</NavLink>
+                  <NavLink to="/grid">Grid 栅格</NavLink>
                 </li>
                 <li className='menu-item'>
-                  <NavLink to="/grid">Grid 栅格</NavLink>
+                  <NavLink to="/layout">Layout 布局</NavLink>
                 </li>
               </ul>
             </li>
             <li className='menu-item-group'>
               <div className='menu-item-group-title'>数据录入</div>
               <ul className='menu-item-group-list'>
+                <li className='menu-item'>
+                  <NavLink to="/input">Input 输入框</NavLink>
+                </li>
                 <li className='menu-item'>
                   <NavLink to="/form">Form 表单</NavLink>
                 </li>
@@ -74,7 +78,8 @@ ReactDOM.render(
           <Route path="/button" component={ButtonDemo} />
           <Route path="/grid" component={GridDemo} />
           <Route path="/dialog" component={DialogExample} />
-          <Route path="/layout" component={LayoutExample} />
+          <Route path="/layout" component={LayoutDemo} />
+          <Route path="/input" component={InputDemo} />
           <Route path="/form" component={FormExample} />
         </Content>
       </Layout>

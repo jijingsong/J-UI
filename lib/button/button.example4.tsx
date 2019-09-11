@@ -5,7 +5,7 @@ const ButtonExample: React.FunctionComponent = () => {
   return (
     <div>
       <Button level='primary' size='large'>Large</Button>
-      <Button level='primary' size='middle'>Middle</Button>
+      <Button level='primary' size='default'>Middle</Button>
       <Button level='primary' size='small'>Small</Button>
     </div>
   )
