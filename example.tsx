@@ -6,8 +6,8 @@ import ButtonDemo from './lib/button/button.demo';
 import GridDemo from './lib/grid/grid.demo';
 import LayoutDemo from './lib/layout/layout.demo';
 import InputDemo from './lib/input/input.demo';
-import DialogExample from './lib/dialog/dialog.example';
-import FormExample from './lib/form/form.example';
+import DialogDemo from './lib/dialog/dialog.demo';
+import FormDemo from './lib/form/form.demo';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 const logo = require('./logo.png')
 import './example.scss'
@@ -77,10 +77,10 @@ ReactDOM.render(
           <Route path="/icon" component={IconDemo} />
           <Route path="/button" component={ButtonDemo} />
           <Route path="/grid" component={GridDemo} />
-          <Route path="/dialog" component={DialogExample} />
+          <Route path="/dialog" component={DialogDemo} />
           <Route path="/layout" component={LayoutDemo} />
           <Route path="/input" component={InputDemo} />
-          <Route path="/form" component={FormExample} />
+          <Route path="/form" component={FormDemo} />
         </Content>
       </Layout>
       <Footer className="site-footer">

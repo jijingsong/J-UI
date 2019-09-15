@@ -9,15 +9,17 @@ interface formValue {
 interface Props {
   value: formValue,
   fields: Array<{ name: string, label: string, input: { type: string } }>
+  rules?: Array<{ [k: string]: any }>
   buttons: React.ReactFragment
   onSubmit: () => void
   onChange: (value: formValue) => void
-  errors: { [k: string]: string[] }
+  errors?: { [k: string]: string[] }
   errorsDisplayFirst?: boolean
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
   const formData = props.value
+  const rules = props.rules
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     props.onSubmit()
@@ -35,6 +37,11 @@ const Form: React.FunctionComponent<Props> = (props) => {
               <tr key={item.name} className='jui-form-tr'>
                 <td className='jui-form-td'>
                   <span className='jui-form-label'>
+                    {
+                      rules && rules.find(rule => rule.key === item.name && rule.required)
+                        ? <span style={{ color: 'red', marginRight: 5 }}>*</span>
+                        : null
+                    }
                     {item.label}
                   </span>
                 </td>
@@ -46,9 +53,11 @@ const Form: React.FunctionComponent<Props> = (props) => {
                   />
                   <div className='jui-form-error'>
                     {
-                      props.errorsDisplayFirst && props.errors[item.name]
-                        ? props.errors[item.name][0]
-                        : props.errors[item.name]
+                      props.errors
+                        ? props.errorsDisplayFirst && props.errors[item.name]
+                          ? props.errors[item.name][0]
+                          : props.errors[item.name]
+                        : null
                     }
                     <span>&nbsp;</span>
                   </div>

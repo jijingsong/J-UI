@@ -20,7 +20,7 @@ const Row: React.FunctionComponent<Props> = (props) => {
       {
         isArray
           ? (props.children as Array<React.ReactElement>)
-            .map(child => React.cloneElement(child, gutter ? { gutter } : {}))
+            .map((child, index) => React.cloneElement(child, gutter ? { gutter, key: index } : { key: index }))
           : props.children
       }
     </div>

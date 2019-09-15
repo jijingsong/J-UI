@@ -1,12 +1,14 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import Icon from '../icon/icon'
+import Button from '../button/button'
 import { scopedClassMaker } from '../helpers/classes'
 import '../index.scss'
 import './dialog.scss'
 
 interface Props {
   visible: boolean,
+  title?: string,
   buttons?: Array<React.ReactElement>,
   onClose: React.MouseEventHandler,
   maskClosable?: boolean,
@@ -27,18 +29,22 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
     <React.Fragment>
       <div className={scopedClass('mask')} onClick={onClickMask}></div>
       <div className={scopedClass()}>
-        <div className={scopedClass('close')} onClick={onClickClose}>
-          <Icon name='close' />
-        </div>
-        <header className={scopedClass('header')}>
-          header
-        </header>
+        {
+          props.title ? <header className={scopedClass('header')}>
+            <div className={scopedClass('title')}>
+              {props.title}
+            </div>
+            <div className={scopedClass('close')} onClick={onClickClose}>
+              <Icon name='close' />
+            </div>
+          </header> : null
+        }
         <main className={scopedClass('main')}>
           {props.children}
         </main>
         {
           props.buttons && props.buttons.length &&
-          <footer className={scopedClass('footer')}>
+          <footer className={scopedClass('footer')} style={!props.title ? { borderTop: '1px solid #fff' } : {}}>
             {
               props.buttons.map((button, index) => {
                 return React.cloneElement(button, { key: index })
@@ -82,12 +88,12 @@ const Modal = (content: React.ReactNode, buttons?: Array<React.ReactElement>, af
   return close
 }
 
-const alert = (content: string) => {
-  const buttons = <button onClick={() => close()}>ok</button>
+const Alert = (content: string) => {
+  const buttons = <Button level='primary' onClick={() => close()}>确定</Button>
   const close = Modal(content, [buttons])
 }
 
-const confirm = (content: string, ok?: () => void, cancel?: () => void) => {
+const Confirm = (content: string, ok?: () => void, cancel?: () => void) => {
   const onOk = () => {
     close()
     ok && ok()
@@ -97,12 +103,12 @@ const confirm = (content: string, ok?: () => void, cancel?: () => void) => {
     cancel && cancel()
   }
   const close = Modal(content, [
-    <button onClick={onOk}>ok</button>,
-    <button onClick={onCancel}>cancel</button>
+    <Button level='primary' onClick={onOk}>确定</Button>,
+    <Button onClick={onCancel}>取消</Button>
   ], cancel)
 }
 
 
-export { alert, confirm, Modal }
+export { Alert, Confirm, Modal }
 
 export default Dialog

@@ -8,6 +8,7 @@ interface FormRule {
     minLength?: number,
     maxLength?: number,
     pattern?: RegExp,
+    message?: string,
     validator?: (value: string) => Promise<string>
 }
 type FormRules = Array<FormRule>
@@ -16,7 +17,7 @@ const isEmpty = (value: any) => {
     return value === undefined || value === null || value === ''
 }
 
-const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: any) => void): void => {
+const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: {}) => void): void => {
     let errors: any = {}
     const addErrors = (key: string, message: string | Promise<string>) => {
         if (errors[key] === undefined) {
@@ -27,16 +28,16 @@ const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: an
     rules.map(rule => {
         const value = formValue[rule.key]
         if (rule.required && isEmpty(value)) {
-            addErrors(rule.key, '请输入')
+            addErrors(rule.key, rule.message || '请输入')
         }
         if (rule.minLength && !isEmpty(value) && value.length < rule.minLength) {
-            addErrors(rule.key, '长度太短')
+            addErrors(rule.key, rule.message || '长度太短')
         }
         if (rule.maxLength && !isEmpty(value) && value.length > rule.maxLength) {
-            addErrors(rule.key, '长度太长')
+            addErrors(rule.key, rule.message || '长度太长')
         }
         if (rule.pattern && !rule.pattern.test(value)) {
-            addErrors(rule.key, '请输入6-12位字母')
+            addErrors(rule.key, rule.message || '格式不正确')
         }
         if (rule.validator) {
             const promise = rule.validator(value)

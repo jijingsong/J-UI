@@ -13,7 +13,7 @@ const checkUserName = (name: string, succeed: () => void, fail: () => void) => {
       console.log('fail')
       fail()
     }
-  }, 1000);
+  }, 2000);
 }
 
 const FormExample = () => {
@@ -26,6 +26,7 @@ const FormExample = () => {
     { name: 'username', label: '用户名', input: { type: 'text' } },
     { name: 'password', label: '密码', input: { type: 'password' } },
   ])
+  const [loading, setLoading] = React.useState(false)
   const rules = [
     {
       key: 'username', validator: (value: string) => {
@@ -36,15 +37,17 @@ const FormExample = () => {
         })
       }
     },
-    { key: 'username', required: true },
-    { key: 'username', minLength: 6, maxLength: 12 },
-    { key: 'username', pattern: /^[a-zA-Z]+$/ },
-    { key: 'password', required: true },
-    { key: 'password', minLength: 6, maxLength: 12 },
+    { key: 'username', required: true, message: '请输入' },
+    { key: 'username', minLength: 6, maxLength: 12, message: '长度为6-12位' },
+    { key: 'username', pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,12}$/, message: '必须为数字加字母组合' },
+    { key: 'password', required: true, message: '请输入' },
+    { key: 'password', minLength: 6, maxLength: 12, message: '长度为6-12位' },
   ]
   const onSubmit = () => {
-    validator(formData, rules, (errorsMap) => {
+    setLoading(true)
+    validator(formData, (rules), (errorsMap: any) => {
       setErrors(errorsMap)
+      setLoading(false)
       if (!Object.keys(errorsMap).length) {
         console.log(formData)
         console.log('提交成功')
@@ -59,9 +62,10 @@ const FormExample = () => {
       <Form
         value={formData}
         fields={fields}
+        rules={rules}
         buttons={
           <React.Fragment>
-            <Button type='submit' level='primary'>提交</Button>
+            <Button type='submit' level='primary' loading={loading}>提交</Button>
             <Button
               onClick={() => setFormData({
                 username: '',
