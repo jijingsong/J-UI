@@ -10,7 +10,6 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const Row: React.FunctionComponent<Props> = (props) => {
   const { className, gutter, ...rest } = props
-  let isArray = props.children && length in props.children
   return (
     <div
       className={scopedClass({ '': true }, { extra: className })}
@@ -18,10 +17,7 @@ const Row: React.FunctionComponent<Props> = (props) => {
       {...rest}
     >
       {
-        isArray
-          ? (props.children as Array<React.ReactElement>)
-            .map((child, index) => React.cloneElement(child, gutter ? { gutter, key: index } : { key: index }))
-          : props.children
+        React.Children.map(props.children, (el: React.ReactElement, index) => React.cloneElement(el, gutter ? { gutter, key: index } : { key: index }))
       }
     </div>
   )

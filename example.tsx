@@ -8,6 +8,7 @@ import LayoutDemo from './lib/layout/layout.demo';
 import InputDemo from './lib/input/input.demo';
 import DialogDemo from './lib/dialog/dialog.demo';
 import FormDemo from './lib/form/form.demo';
+import TabsDemo from './lib/tabs/tabs.demo';
 import { Layout, Header, Aside, Content, Footer } from './lib/layout/layout'
 const logo = require('./logo.png')
 import './example.scss'
@@ -59,7 +60,7 @@ ReactDOM.render(
               <div className='menu-item-group-title'>数据展示</div>
               <ul className='menu-item-group-list'>
                 <li className='menu-item'>
-                  {/* <NavLink to="/form">Form 表单</NavLink> */}
+                  <NavLink to="/tabs">Tabs 标签页</NavLink>
                 </li>
               </ul>
             </li>
@@ -81,6 +82,7 @@ ReactDOM.render(
           <Route path="/layout" component={LayoutDemo} />
           <Route path="/input" component={InputDemo} />
           <Route path="/form" component={FormDemo} />
+          <Route path="/tabs" component={TabsDemo} />
         </Content>
       </Layout>
       <Footer className="site-footer">

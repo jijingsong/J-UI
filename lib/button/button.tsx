@@ -17,10 +17,10 @@ const Button: React.FunctionComponent<Props> = (props) => {
       className={classes('jui-button', `jui-button-${level}`, disabled ? 'disabled' : '', `${size}`, loading ? 'loading' : '', className)}
       {...rest}
     >
-      <span>
+      <div>
         {loading ? <Icon name='loading' className='loading' /> : null}
         {children}
-      </span>
+      </div>
     </button>
   )
 }
