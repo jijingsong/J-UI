@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
 import ButtonDemo from './lib/button/button.demo';
 import GridDemo from './lib/grid/grid.demo';
@@ -75,14 +75,17 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Content className="site-main">
-          <Route path="/icon" component={IconDemo} />
-          <Route path="/button" component={ButtonDemo} />
-          <Route path="/grid" component={GridDemo} />
-          <Route path="/dialog" component={DialogDemo} />
-          <Route path="/layout" component={LayoutDemo} />
-          <Route path="/input" component={InputDemo} />
-          <Route path="/form" component={FormDemo} />
-          <Route path="/tabs" component={TabsDemo} />
+          <Switch>
+            <Route path="/icon" component={IconDemo} />
+            <Route path="/button" component={ButtonDemo} />
+            <Route path="/grid" component={GridDemo} />
+            <Route path="/dialog" component={DialogDemo} />
+            <Route path="/layout" component={LayoutDemo} />
+            <Route path="/input" component={InputDemo} />
+            <Route path="/form" component={FormDemo} />
+            <Route path="/tabs" component={TabsDemo} />
+            <Redirect from="/" to="/button" />
+          </Switch>
         </Content>
       </Layout>
       <Footer className="site-footer">

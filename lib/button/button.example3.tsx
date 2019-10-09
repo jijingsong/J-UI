@@ -5,8 +5,8 @@ const ButtonExample: React.FunctionComponent = () => {
   const [loading, setLoading] = React.useState(false)
   return (
     <div>
-      <Button loading={true}>Loading</Button>
-      <Button loading={loading} onClick={() => setLoading(!loading)}>Click me</Button>
+      <Button level='primary' loading={true}>Loading</Button>
+      <Button level='primary' loading={loading} onClick={() => setLoading(!loading)}>Click me</Button>
     </div>
   )
 }
